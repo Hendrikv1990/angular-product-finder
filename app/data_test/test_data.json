@@ -1,0 +1,32 @@
+{"optionsList":[{
+    "_id": "1",
+    "text": "elephant",
+    "img": "http://s1.minutebuzz.com/i/2014/07/jeanneige-L.png.jpg",
+    "attributes": [1,4,7]
+  }, {
+    "_id": "2",
+    "text": "plastic beach",
+    "img": "http://images-cdn.9gag.com/photo/aYW427w_700b.jpg",
+    "attributes": [5]
+  }],
+"slidesList":[{
+    "_id": "1",
+    "text": "shopboosta",
+    "img": "",
+    "options": [1,2]
+    }, {
+    "_id": "2",
+    "text": "something",
+    "img": "",
+    "options": []
+  }],
+"slidesPath":{
+  "_id": 1,
+  "options": {
+    "1": {
+      "_id": 2,
+      "options": {}
+    },
+    "2": false
+  }
+}}
