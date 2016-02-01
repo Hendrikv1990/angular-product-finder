@@ -1,1 +1,22 @@
-<p>This is the partial for view 1.</p>
+<div class="background-slide" ng-style="{ 'background-image': 'url(' + currentSlide.img + ')'}"></div>
+<div class="container-fluid slide-container">
+
+    <div class="breadcrumb">
+        <span ng-repeat="item in actionStack">
+            {{item.slideId}} : {{item.option}}
+            <span ng-if="!$last"> > </span>
+        </span>
+    </div>
+
+    <div class="row">
+        <h2>{{currentSlide.text}}</h2>
+    </div>
+    <div class="row">
+        <div ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" class="option_image">
+            <a href="" ng-click="optionClicked(optionId)">
+                <img src="{{option.img}}"/>
+                <h2><span>{{option.text}}</span></h2>
+            </a>
+        </div>
+    </div>
+</div>

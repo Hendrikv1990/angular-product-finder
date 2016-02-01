@@ -8,25 +8,47 @@
     "text": "plastic beach",
     "img": "http://images-cdn.9gag.com/photo/aYW427w_700b.jpg",
     "attributes": [5]
+  } ,
+  { "_id": "3",
+    "text": "one more option",
+    "img": "http://images-cdn.moviepilot.com/images/c_limit,h_360,w_640/t_mp_quality/qgqpal5akpm621tdsmlt/if-this-theory-s-true-then-jon-snow-is-definitely-dead-607536.jpg",
+    "attributes": [8]
+  } ,
+  { "_id": "4",
+    "text": "smooth choice",
+    "img": "http://screenrant.com/wp-content/uploads/Game-of-Thrones-Finale-Jon-Snow-Dead-Killed.jpg",
+    "attributes": [4]
   }],
 "slidesList":[{
     "_id": "1",
     "text": "shopboosta",
-    "img": "",
-    "options": [1,2]
+    "img": "http://entropymag.org/wp-content/uploads/2014/10/outer-space-wallpaper-pictures.jpg",
+    "options": [1,2,3]
     }, {
     "_id": "2",
     "text": "something",
-    "img": "",
+    "img": "http://weknowyourdreamz.com/images/space/space-06.jpg",
+    "options": [4]
+  } , {
+    "_id": "3",
+    "text": "Quite a long trip there",
+    "img": "http://cdni.wired.co.uk/1240x826/s_v/space_11.jpg",
     "options": []
   }],
 "slidesPath":{
-  "_id": 1,
+  "_id": "1",
   "options": {
     "1": {
-      "_id": 2,
-      "options": {}
+      "_id": "2",
+      "options": {
+        "4": {
+          "_id": "3",
+          "options": {}
+        }
+      }
     },
-    "2": false
-  }
-}}
+    "2": false,
+    "3": false
+  }},
+"initialSlide":"1"
+}
