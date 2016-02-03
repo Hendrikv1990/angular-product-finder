@@ -6,14 +6,13 @@ function findById(arr,id){
   })[0];
 }
 
-
-function getNextSlide($scope,optionId){
-  var currentPath = $scope.slidesPath;
-  $scope.actionStack.forEach(function(item){
+function getNextSlide(scope,optionId){
+  var currentPath = scope.slidesPath;
+  scope.actionStack.forEach(function(item){
     currentPath = currentPath.options[item.option];
   });
 
-  return findById($scope.slidesList,currentPath.options["" + optionId]._id);
+  return findById(scope.slidesList,currentPath.options["" + optionId]._id);
 }
 
 angular.module('myApp.productFinder', ['ngRoute'])
@@ -27,22 +26,24 @@ angular.module('myApp.productFinder', ['ngRoute'])
 
 .controller('ProductFinderCtrl',
   function($scope,$http) {
-    $scope.actionStack = [];
 
-    $scope.findById = findById;
+      $scope.actionStack = [];
+      $scope.findById = findById;
+      $scope.animationSwap = "";
 
-    $http.get("data_test/test_data.json")
-        .then(function(response) {
-          $scope.optionsList = response.data.optionsList;
-          $scope.slidesList = response.data.slidesList;
-          $scope.slidesPath = response.data.slidesPath;
-          $scope.initialSlide = response.data.initialSlide;
-          $scope.currentSlide = findById($scope.slidesList,$scope.initialSlide);
-      });
+      $http.get("data_test/test_data.json")
+          .then(function(response) {
+              $scope.optionsList = response.data.optionsList;
+              $scope.slidesList = response.data.slidesList;
+              $scope.slidesPath = response.data.slidesPath;
+              $scope.initialSlide = response.data.initialSlide;
+              $scope.currentSlide = findById($scope.slidesList,$scope.initialSlide);
+          });
 
-    $scope.optionClicked = function(optionId){
-      var oldSlideId = $scope.currentSlide._id;
-      $scope.currentSlide = getNextSlide($scope,optionId);
-      $scope.actionStack.push({"slideId" : oldSlideId,"option":"" + optionId});
-    };
+      $scope.optionClicked = function(optionId){
+          $scope.animationSwap = " swap-animation-in";
+          var oldSlideId = $scope.currentSlide._id;
+          $scope.currentSlide = getNextSlide($scope,optionId);
+          $scope.actionStack.push({"slideId" : oldSlideId,"option":"" + optionId});
+      };
 });

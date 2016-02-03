@@ -1,22 +1,23 @@
-<div class="background-slide" ng-style="{ 'background-image': 'url(' + currentSlide.img + ')'}"></div>
-<div class="container-fluid slide-container">
+<div class="slide-container">
 
-    <div class="breadcrumb">
-        <span ng-repeat="item in actionStack">
-            {{item.slideId}} : {{item.option}}
-            <span ng-if="!$last"> > </span>
-        </span>
-    </div>
+    <div class="container-fluid slide-content swap-animation-out" ng-class="animationSwap" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide">
 
-    <div class="row">
-        <h2>{{currentSlide.text}}</h2>
-    </div>
-    <div class="row">
-        <div ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" class="option_image">
-            <a href="" ng-click="optionClicked(optionId)">
-                <img src="{{option.img}}"/>
-                <h2><span>{{option.text}}</span></h2>
-            </a>
+        <div class="row">
+            <h2 class="text-center slide-title"> {{currentSlide.text}}</h2>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" >
+                <a class="thumbnail slide-thumbnail" ng-click="optionClicked(optionId)">
+                    <div class="caption">
+                        {{option.text}}
+                    </div>
+                    <img preload-image ng-src="{{option.img}}" class="center-block img-responsive"/>
+                </a>
+            </div>
+        </div>
+
     </div>
+
 </div>
+
