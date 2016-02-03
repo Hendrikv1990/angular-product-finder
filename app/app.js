@@ -4,9 +4,11 @@
 angular.module('myApp', [
   'ngRoute',
   'ui.bootstrap',
+    'modelService',
     'ngAnimate',
     'angular-preload-image',
   'myApp.productFinder',
+    'myApp.resultsView',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {

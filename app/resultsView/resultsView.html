@@ -1,0 +1,5 @@
+Your actions so far have been :
+
+<div ng-repeat="action in actionStack">
+    <span> You took option {{action.option}} which has the following attributes : <span ng-repeat="attr in action.attributes">{{attr}} </span> at slide {{action.slideId}}</span>
+</div>

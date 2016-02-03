@@ -28,6 +28,21 @@
     "text": "Woman",
     "img": "https://gentlemenhood.com/wp-content/uploads/2014/05/134247814-Happy-woman.jpg",
     "attributes": [4]
+  },
+  { "_id": "7",
+    "text": "Yellow",
+    "img": "https://i.ytimg.com/vi/R3unPcJDbCc/sddefault.jpg",
+    "attributes": [10]
+  },
+  { "_id": "8",
+    "text": "Blue",
+    "img": "http://img1.findthebest.com/sites/default/files/2307/media/images/Deep_Sky_Blue_429606_i0.png",
+    "attributes": [11]
+  },
+  { "_id": "9",
+    "text": "Red",
+    "img": "http://www.colorcombos.com/images/colors/FF0000.png",
+    "attributes": [12]
   }],
 "slidesList":[{
     "_id": "1",
@@ -44,18 +59,48 @@
     "text": "Kind of cloth",
     "img": "http://thumbs.dreamstime.com/z/big-pile-clothes-thrown-ground-t-shirt-saying-n-close-up-untidy-cluttered-wardrobe-colorful-accessories-many-61821425.jpg",
     "options": [2,3,4]
-  }],
+  }, {
+  "_id": "4",
+  "text": "Color",
+  "img": "http://www.valsparwood.com/valsparwood/EN/images/colorChoice/color_choice_design.jpg",
+  "options": [7,8,9]
+}],
 "slidesPath":{
   "_id": "1",
   "options": {
     "5": {
       "_id": "2",
       "options": {
+        "1": {
+          "_id": "4",
+          "options": {
+
+          }},
+        "2": {
+          "_id": "4",
+          "options": {
+
+          }}
       }
     },
       "6": {
         "_id": "3",
         "options": {
+          "2": {
+            "_id": "4",
+            "options": {
+
+            }},
+          "3": {
+            "_id": "4",
+            "options": {
+
+            }},
+          "4": {
+            "_id": "4",
+            "options": {
+
+            }}
         }
       }
      }

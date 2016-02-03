@@ -7,12 +7,16 @@ function findById(arr,id){
 }
 
 function getNextSlide(scope,optionId){
-  var currentPath = scope.slidesPath;
-  scope.actionStack.forEach(function(item){
-    currentPath = currentPath.options[item.option];
-  });
-
+  var currentPath = getCurrentPath(scope);
   return findById(scope.slidesList,currentPath.options["" + optionId]._id);
+}
+
+function getCurrentPath(scope){
+    var currentPath = scope.slidesPath;
+    scope.actionStack.forEach(function(item){
+        currentPath = currentPath.options[item.option];
+    });
+    return currentPath;
 }
 
 angular.module('myApp.productFinder', ['ngRoute'])
@@ -25,7 +29,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
 }])
 
 .controller('ProductFinderCtrl',
-  function($scope,$http) {
+  function($scope,$http,modelService,$location) {
 
       $scope.actionStack = [];
       $scope.findById = findById;
@@ -38,12 +42,28 @@ angular.module('myApp.productFinder', ['ngRoute'])
               $scope.slidesPath = response.data.slidesPath;
               $scope.initialSlide = response.data.initialSlide;
               $scope.currentSlide = findById($scope.slidesList,$scope.initialSlide);
+              console.log($scope.slidesPath);
           });
 
       $scope.optionClicked = function(optionId){
+          //Convert optionId to string since json is using strings
+          optionId = "" + optionId;
           $scope.animationSwap = " swap-animation-in";
           var oldSlideId = $scope.currentSlide._id;
-          $scope.currentSlide = getNextSlide($scope,optionId);
-          $scope.actionStack.push({"slideId" : oldSlideId,"option":"" + optionId});
+          var actionObject = {"slideId" : oldSlideId,"option":"" + optionId, "attributes": findById($scope.optionsList,optionId).attributes};
+          if(angular.equals(getCurrentPath($scope).options, {})){
+              $scope.actionStack.push(actionObject);
+              var data = modelService.get();
+              data.actionStack = [];
+              angular.copy($scope.actionStack,data.actionStack);
+              modelService.set(data);
+              $location.path("/results");
+          } else {
+              $scope.currentSlide = getNextSlide($scope,optionId);
+              //TODO send actionObject
+              $scope.actionStack.push(actionObject);
+          }
+
+
       };
 });
