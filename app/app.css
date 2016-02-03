@@ -113,7 +113,17 @@ html,body{
 
 
 
-.product-animate.ng-enter,
+.product-animate.ng-enter
+{
+  -webkit-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
 .product-animate.ng-leave
 {
   -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -128,13 +138,9 @@ html,body{
 .product-animate.ng-enter.product-animate.ng-enter-active,
 .product-animate.ng-leave {
   opacity: 1;
-  right: 0;
-  height: 30px;
 }
 
 .product-animate.ng-leave.product-animate.ng-leave-active,
 .product-animate.ng-enter {
   opacity: 0;
-  right: -50px;
-  height: 0px;
 }
