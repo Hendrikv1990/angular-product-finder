@@ -21,3 +21,21 @@
 
 </div>
 
+<div class="container-fluid" ng-if="productFeed.length != 0">
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3 product-animate" ng-repeat="product in productFeed">
+            <a class="thumbnail slide-thumbnail" ng-href="{{product.link}}">
+                <div class="caption">
+                    {{product.name}}
+                </div>
+                <img preload-image ng-src="{{product.img}}" class="center-block img-responsive"/>
+                <div class="caption">
+                    {{product.price}}
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+

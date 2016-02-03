@@ -19,6 +19,14 @@ function getCurrentPath(scope){
     return currentPath;
 }
 
+function getProducts(actionObject,productList){
+    return productList.filter(function(product){
+        return actionObject.attributes.filter(function(attribute){
+            return product.attributes.indexOf(attribute) != -1;
+        }).length != 0;
+    });
+}
+
 angular.module('myApp.productFinder', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -34,16 +42,24 @@ angular.module('myApp.productFinder', ['ngRoute'])
       $scope.actionStack = [];
       $scope.findById = findById;
       $scope.animationSwap = "";
+      $scope.productFeed = [];
 
-      $http.get("data_test/test_data.json")
+      $http.get("data_test/test_data_productFinder.json")
           .then(function(response) {
               $scope.optionsList = response.data.optionsList;
               $scope.slidesList = response.data.slidesList;
               $scope.slidesPath = response.data.slidesPath;
               $scope.initialSlide = response.data.initialSlide;
               $scope.currentSlide = findById($scope.slidesList,$scope.initialSlide);
-              console.log($scope.slidesPath);
           });
+
+      // TODO Remove when implementation is correct
+      $http.get("data_test/test_data_productFeed.json")
+          .then(function(response) {
+              $scope.productList = response.data;
+              console.log($scope.productList);
+          });
+      // END to be removed
 
       $scope.optionClicked = function(optionId){
           //Convert optionId to string since json is using strings
@@ -61,6 +77,8 @@ angular.module('myApp.productFinder', ['ngRoute'])
           } else {
               $scope.currentSlide = getNextSlide($scope,optionId);
               //TODO send actionObject
+              $scope.productFeed = getProducts(actionObject,$scope.productList);
+              console.log($scope.productFeed);
               $scope.actionStack.push(actionObject);
           }
 

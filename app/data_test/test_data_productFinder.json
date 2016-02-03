@@ -2,12 +2,12 @@
     "_id": "1",
     "text": "Shoes",
     "img": "http://i2.cdscdn.com/pdt2/9/3/1/1/700x700/mp00357931/rw/chaussures-homme-bleu-marine-a-s.jpg",
-    "attributes": [1,4,7]
+    "attributes": [1]
   }, {
     "_id": "2",
     "text": "Shirt",
     "img": "http://static3.shilton.fr/boutique-en-ligne-shilton/3533/chemise-homme-city-manches-longues.jpg",
-    "attributes": [5]
+    "attributes": [3]
   } ,
   { "_id": "3",
     "text": "Dress",
@@ -17,12 +17,12 @@
   { "_id": "4",
     "text": "Pants",
     "img": "http://i2.cdscdn.com/pdt2/b/e/b/1/700x700/gwa040beb/rw/guess-pantalon-femme.jpg",
-    "attributes": [4]
+    "attributes": [2]
   },
   { "_id": "5",
     "text": "Man",
     "img": "http://steezo.com/wp-content/uploads/2012/12/man-in-suit2.jpg",
-    "attributes": [4]
+    "attributes": [5]
   },
   { "_id": "6",
     "text": "Woman",
