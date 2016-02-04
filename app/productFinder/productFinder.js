@@ -43,6 +43,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
       $scope.findById = findById;
       $scope.animationSwap = "";
       $scope.productFeed = [];
+      $scope.currency = "€";
 
       $http.get("data_test/test_data_productFinder.json")
           .then(function(response) {
@@ -78,6 +79,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
               $scope.currentSlide = getNextSlide($scope,optionId);
               //TODO send actionObject
               $scope.productFeed = getProducts(actionObject,$scope.productList);
+
               console.log($scope.productFeed);
               $scope.actionStack.push(actionObject);
           }

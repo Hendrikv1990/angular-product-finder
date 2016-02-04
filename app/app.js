@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'ui.bootstrap',
+    'perfect_scrollbar',
     'modelService',
     'ngAnimate',
     'angular-preload-image',

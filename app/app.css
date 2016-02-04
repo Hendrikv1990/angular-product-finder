@@ -50,9 +50,25 @@ html,body{
 .slide-container{
   position:relative;
   height:60%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  margin-bottom:2px;
+  overflow:hidden;
+}
+
+.productFeed-container{
+  position:relative;
+  height:40%;
+  overflow:hidden;
+}
+
+.productFinder-container{
+  position:relative;
+  height:90%;
   width:60%;
   margin-left:20%;
-  margin-top:10%;
+  margin-top:2.5%;
   border-style: solid;
   border-width: 1px;
   border-color: black;
@@ -86,6 +102,7 @@ html,body{
   overflow:hidden;
   padding:0px;
   border-width:2px;
+  max-height: 100%;
 }
 
 .slide-title{
