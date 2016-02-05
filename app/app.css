@@ -50,9 +50,9 @@ html,body{
 .slide-container{
   position:relative;
   height:60%;
-  border-style: solid;
+  /*border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: black;*/
   margin-bottom:2px;
   overflow:hidden;
 }
@@ -69,9 +69,9 @@ html,body{
   width:60%;
   margin-left:20%;
   margin-top:2.5%;
-  border-style: solid;
+  /*border-style: solid;
   border-width: 1px;
-  border-color: black;
+  border-color: black;*/
   overflow:hidden;
 }
 
@@ -106,10 +106,10 @@ html,body{
 }
 
 .slide-title{
-  font-size:3em;
+  font-size:2.5em;
   font-weight:bold;
   opacity:1;
-  background-color:white
+  /*background-color:white*/
 }
 
 /* slide in from the bottom */
@@ -160,4 +160,126 @@ html,body{
 .product-animate.ng-leave.product-animate.ng-leave-active,
 .product-animate.ng-enter {
   opacity: 0;
+}
+
+/* to make scrollbars always visible */
+.scrollbar-always-visible.ps-container > .ps-scrollbar-x-rail,
+.scrollbar-always-visible.ps-container > .ps-scrollbar-y-rail {
+  opacity: 0.6;
+}
+
+@font-face {
+  font-family: gothamBlack;
+  src: url("fonts/gotham-black.ttf");
+}
+
+
+@font-face {
+  font-family: gothamLight;
+  src: url("fonts/gotham-light.ttf");
+}
+
+@font-face {
+  font-family: gothamMedium;
+  src: url("fonts/gotham-medium.ttf");
+}
+
+@font-face {
+  font-family: gothamBook;
+  src: url("fonts/gotham-book.ttf");
+}
+
+.slide-thumbnail .caption{
+  font-family: gothamLight;
+}
+
+
+.slide-title pre{
+  font-family: gothamBlack;
+}
+
+.full-height{
+  height:100%;
+}
+
+pre{
+  border:initial;
+  background-color:inherit;
+  color:inherit;
+  font-size:inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.breadcrumb {
+  /*centering*/
+  display: inline-block;
+  overflow: hidden;
+  background-color:inherit;
+}
+
+.breadcrumb div.action-container {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  float: left;
+  /*need more margin on the left of links to accomodate the numbers*/
+  padding: 0 10px 0 60px;
+  position: relative;
+}
+/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
+.breadcrumb div.action-container:first-child {
+  padding-left: 46px;
+}
+.breadcrumb div.action-container:first-child:before {
+  left: 14px;
+}
+.breadcrumb div.action-container:last-child {
+  border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
+  padding-right: 20px;
+}
+
+/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+.breadcrumb div.action-container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -35px; /*half of square's length*/
+  /*same dimension as the line-height of .breadcrumb a */
+  width: 40px;
+  height: 40px;
+  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
+  length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+  if diagonal required = 1; length = 1/1.414 = 0.707*/
+  transform: scale(0.707) rotate(45deg);
+  /*we need to prevent the arrows from getting buried under the next link*/
+  z-index: 1;
+
+  /*stylish arrow design using box shadow*/
+  box-shadow:
+          2px -2px 0 2px rgba(0, 0, 0, 0.4),
+          3px -3px 0 2px rgba(255, 255, 255, 0.1);
+  /*
+      5px - for rounded arrows and
+      50px - to prevent hover glitches on the border created using shadows*/
+  border-radius: 0 2px 0 50px;
+}
+/*we dont need an arrow after the last link*/
+.breadcrumb div.action-container:last-child:after {
+  content: none;
+}
+
+.action-slideName{
+  font-weight: bold;
+  font-family: gothamMedium;
+  font-size:1.2em;
+  text-align:center;
+}
+
+.action-optionName{
+  font-weight: bold;
+  font-family: gothamBook;
+  color: #bfbfbf;
+  font-size:1em;
 }

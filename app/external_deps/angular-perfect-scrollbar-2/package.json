@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "angular-perfect-scrollbar-2",
+      "C:\\wamp\\www\\Product-Finder-Client"
+    ]
+  ],
+  "_from": "angular-perfect-scrollbar-2@*",
+  "_id": "angular-perfect-scrollbar-2@1.2.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/angular-perfect-scrollbar-2",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "email": "s.v.batalov@yandex.ru",
+    "name": "svbatalov"
+  },
+  "_npmVersion": "2.11.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "angular-perfect-scrollbar-2",
+    "raw": "angular-perfect-scrollbar-2",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-perfect-scrollbar-2/-/angular-perfect-scrollbar-2-1.2.3.tgz",
+  "_shasum": "d2a64836d85cf10fa62e62f29c8e888a1c0dd225",
+  "_shrinkwrap": null,
+  "_spec": "angular-perfect-scrollbar-2",
+  "_where": "C:\\wamp\\www\\Product-Finder-Client",
+  "author": {
+    "name": "Sergey Batalov"
+  },
+  "browserify-css": {
+    "autoInject": true,
+    "minify": false
+  },
+  "browserify-shim": {
+    "angular": "global:angular"
+  },
+  "dependencies": {
+    "perfect-scrollbar": "^0.6.4"
+  },
+  "description": "A wrapper for perfect-scrollbar using its new CommonJS API and injecting CSS automatically.",
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "browserify-css": "^0.6.1",
+    "browserify-derequire": "^0.9.4",
+    "browserify-shim": "^3.8.10"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "d2a64836d85cf10fa62e62f29c8e888a1c0dd225",
+    "tarball": "http://registry.npmjs.org/angular-perfect-scrollbar-2/-/angular-perfect-scrollbar-2-1.2.3.tgz"
+  },
+  "gitHead": "ffc804454b5d5f53594dbcb527c2692605a5c6b4",
+  "keywords": [
+    "browserify",
+    "perfect-scrollbar",
+    "scroll"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "maintainers": [
+    {
+      "name": "svbatalov",
+      "email": "s.v.batalov@yandex.ru"
+    }
+  ],
+  "name": "angular-perfect-scrollbar-2",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "build": "browserify -x angular -s angular-perfect-scrollbar-2 -t browserify-css -t browserify-shim -p browserify-derequire index.js > dist/index.js",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.2.3"
+}

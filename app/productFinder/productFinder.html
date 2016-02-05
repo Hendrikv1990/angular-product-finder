@@ -1,18 +1,37 @@
 <div class="productFinder-container">
 
-    <div class="slide-container">
+    <div class="breadcrumb row">
+        <div class="action-container" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb">
+            <div class="action-slideName">
+                {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
+            </div>
+            <div class="action-optionName">
+                {{ ! findById(optionsList,action.option).hasOwnProperty("shortcut")  ? findById(optionsList,action.option).text : findById(optionsList,action.option).shortcut}}
+            </div>
+        </div>
+        <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
+            <div class="action-slideName">
+                {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
+            </div>
+            <div class="action-optionName">
+                {{ " "}}
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container {{showProductFeed ? '' : 'full-height'}}">
 
         <div class="container-fluid slide-content swap-animation-out" ng-class="animationSwap" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide">
 
             <div class="row">
-                <h2 class="text-center slide-title"> {{currentSlide.text}}</h2>
+                <h2 class="text-center slide-title"> <pre> {{currentSlide.text | uppercase}} </pre></h2>
             </div>
 
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" >
+                <div class="col-md-{{Math.round(12/Math.min(currentSlide.options.length,5))}} col-md-offset-{{ $index % 5 == 0 ? (12%Math.min(currentSlide.options.length,5))/2 : 0}}" ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" >
                     <a class="thumbnail slide-thumbnail" ng-click="optionClicked(optionId)">
                         <div class="caption">
-                            {{option.text}}
+                            {{option.text | uppercase}}
                         </div>
                         <img preload-image ng-src="{{option.img}}" class="center-block img-responsive"/>
                     </a>
@@ -23,7 +42,7 @@
 
     </div>
 
-    <perfect-scrollbar class="container-fluid productFeed-container" useBothWheelAxes="true" suppressScrollX="true" include-padding='true' ng-if="productFeed.length != 0">
+    <perfect-scrollbar class="container-fluid productFeed-container scrollbar-always-visible" opts="productFeedContainerScrollOpts" repeat-end="onProductFeedUpdate()" update="productFeedContainerUpdate" ng-if="productFeed.length != 0 && showProductFeed">
 
         <div class="row">
             <div class="col-xs-6 col-sm-4 col-md-3 product-animate" ng-repeat="product in productFeed">
@@ -33,7 +52,7 @@
                     </div>
                     <img preload-image ng-src="{{product.img}}" class="center-block img-responsive"/>
                     <div class="caption">
-                        {{product.price}} {{currency}}
+                        {{product.price | currency}}
                     </div>
                 </a>
             </div>
