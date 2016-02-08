@@ -1,27 +1,33 @@
 <div class="productFinder-container">
 
-    <div class="breadcrumb row">
-        <div class="action-container" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb">
-            <div class="action-slideName">
-                {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
+    <div class="breadcrumb-container">
+        <div class="breadcrumb row">
+            <div class="action-container" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb">
+                <div class="action-slideName">
+                    {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
+                    <span class="glyphicon glyphicon-ok text-success action-icon" aria-hidden="true"></span>
+                </div>
+                <div class="action-optionName">
+                    {{ ! findById(optionsList,action.option).hasOwnProperty("shortcut")  ? findById(optionsList,action.option).text : findById(optionsList,action.option).shortcut}}
+                </div>
             </div>
-            <div class="action-optionName">
-                {{ ! findById(optionsList,action.option).hasOwnProperty("shortcut")  ? findById(optionsList,action.option).text : findById(optionsList,action.option).shortcut}}
+            <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
+                <div class="action-slideName">
+                    {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
+                </div>
+                <div class="action-optionName">
+                    &nbsp;
+                </div>
             </div>
         </div>
-        <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
-            <div class="action-slideName">
-                {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
-            </div>
-            <div class="action-optionName">
-                {{ " "}}
-            </div>
-        </div>
+
     </div>
 
-    <div class="slide-container {{showProductFeed ? '' : 'full-height'}}">
 
-        <div class="container-fluid slide-content swap-animation-out" ng-class="animationSwap" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide">
+
+    <div class="slide-container">
+
+        <div class="container-fluid slide-content {{animationSwap}}" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide">
 
             <div class="row">
                 <h2 class="text-center slide-title"> <pre> {{currentSlide.text | uppercase}} </pre></h2>
@@ -30,17 +36,34 @@
             <div class="row">
                 <div class="col-md-{{Math.round(12/Math.min(currentSlide.options.length,5))}} col-md-offset-{{ $index % 5 == 0 ? (12%Math.min(currentSlide.options.length,5))/2 : 0}}" ng-repeat="optionId in currentSlide.options" ng-init="option = findById(optionsList,optionId)" >
                     <a class="thumbnail slide-thumbnail" ng-click="optionClicked(optionId)">
-                        <div class="caption">
+                        <div class="caption caption-over" ng-if="captionOver">
                             {{option.text | uppercase}}
                         </div>
-                        <img preload-image ng-src="{{option.img}}" class="center-block img-responsive"/>
+                        <div class="img-container">
+                            <img preload-image ng-src="{{option.img}}" class="center-block img-responsive"/>
+                        </div>
+                        <div class="caption">
+                            <span class="hover-underline-center">
+                                {{option.text | uppercase}}
+                            </span>
+                        </div>
                     </a>
                 </div>
             </div>
 
+
+
+
         </div>
 
+
     </div>
+
+    <a class="previous-button" ng-click="previous()" ng-if="actionStack.length != 0">
+        <div>
+            <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ZÜRUCK
+        </div>
+    </a>
 
     <perfect-scrollbar class="container-fluid productFeed-container scrollbar-always-visible" opts="productFeedContainerScrollOpts" repeat-end="onProductFeedUpdate()" update="productFeedContainerUpdate" ng-if="productFeed.length != 0 && showProductFeed">
 
@@ -60,4 +83,7 @@
 
     </perfect-scrollbar>
 
+
+
 </div>
+

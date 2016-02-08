@@ -19,6 +19,16 @@ function getCurrentPath(scope){
     return currentPath;
 }
 
+function _transmitEventToChildren(parent,$event){
+    for(var i = 0; i < parent.children.length ; ++i){
+        var node = parent.children[i];
+        var event = new MouseEvent("mouseover");
+        console.log(node);
+        node.dispatchEvent($event);
+        _transmitEventToChildren(node);
+    }
+}
+
 function getProducts(actionObject,productList){
     return productList.filter(function(product){
         return actionObject.attributes.filter(function(attribute){
@@ -41,17 +51,15 @@ angular.module('myApp.productFinder', ['ngRoute'])
 
       $scope.actionStack = [];
       $scope.findById = findById;
-      $scope.animationSwap = "";
       $scope.productFeed = [];
       $scope.showProductFeed = false;
       $scope.productFeedContainerScrollOpts = {
           useBothWheelAxes:"true",
           suppressScrollX:"true"
       };
+      $scope.animationSwap = "swap-animation-out";
 
       $scope.shouldDisplayInBreadcrumb = function(action){
-          console.log(findById($scope.slidesList,action.slideId).breadcrumbDisplay);
-          console.log(findById($scope.slidesList,action.slideId).hasOwnProperty('breadcrumbDisplay'));
           return findById($scope.slidesList,action.slideId).hasOwnProperty('breadcrumbDisplay') ? findById($scope.slidesList,action.slideId).breadcrumbDisplay : true;
       };
 
@@ -60,6 +68,13 @@ angular.module('myApp.productFinder', ['ngRoute'])
                 return $scope.shouldDisplayInBreadcrumb(item);
           });
       };
+
+      $scope.previous = function(){
+          var curAction = $scope.actionStack.pop();
+          //TODO not ready for prime time
+          /*$scope.animationSwap = "swap-animation-reverse";*/
+          $scope.currentSlide = findById($scope.slidesList,curAction.slideId);
+      }
 
       $scope.Math = Math;
 
@@ -87,7 +102,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
       $scope.optionClicked = function(optionId){
           //Convert optionId to string since json is using strings
           optionId = "" + optionId;
-          $scope.animationSwap = " swap-animation-in";
+          $scope.animationSwap += " swap-animation-out";
           var oldSlideId = $scope.currentSlide._id;
           var actionObject = {"slideId" : oldSlideId,"option":"" + optionId, "attributes": findById($scope.optionsList,optionId).attributes};
           if(angular.equals(getCurrentPath($scope).options, {})){
@@ -98,6 +113,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
               modelService.set(data);
               $location.path("/results");
           } else {
+              /*angular.elem("div.slide-content").hasClass("animation-swap-reverse")*/
               $scope.currentSlide = getNextSlide($scope,optionId);
               //TODO send actionObject
               $scope.productFeed = getProducts(actionObject,$scope.productList);

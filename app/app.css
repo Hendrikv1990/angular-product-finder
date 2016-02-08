@@ -77,11 +77,23 @@ html,body{
 
 .slide-thumbnail .caption{
   text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.slide-thumbnail .caption-over{
   background-color:rgba(0,0,0,0.8);
   color:white;
   font-weight: bold;
 }
 
+a.slide-thumbnail:hover{
+  text-decoration:none;
+  color:inherit;
+  cursor: pointer;
+}
+
+/** NOT USE AT THE MOMENT, WOULD BE TO DO A GLOBAL OVERLAY ON IMG **/
 .caption-img-overlay {
   position:absolute;
   top:0px;
@@ -101,7 +113,8 @@ html,body{
   position:relative;
   overflow:hidden;
   padding:0px;
-  border-width:2px;
+  /* border-width:2px;*/
+  border-width: 0px;
   max-height: 100%;
 }
 
@@ -109,23 +122,39 @@ html,body{
   font-size:2.5em;
   font-weight:bold;
   opacity:1;
+  margin-bottom: 30px;
   /*background-color:white*/
 }
 
-/* slide in from the bottom */
+.slide-thumbnail .img-container{
+  overflow: hidden;
+}
+
 @keyframes slideOutLeft {
   from    { transform: translateX(0); }
   to      { transform: translateX(-100%); }
 }
 
-/* slide in from the right */
 @keyframes slideInRight {
   from    { transform:translateX(100%); }
   to      { transform: translateX(0); }
 }
 
+@keyframes slideInLeft {
+  from    { transform: translateX(-100%); }
+  to      { transform: translateX(0%); }
+}
+
+@keyframes slideOutRight {
+  from    { transform:translateX(0%); }
+  to      { transform: translateX(100%); }
+}
+
 .swap-animation-in.ng-enter        { animation:slideInRight 0.5s both ease-in; }
 .swap-animation-out.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }
+
+.swap-animation-reverse.ng-enter        { animation:slideInLeft 0.5s both ease-in; }
+.swap-animation-reverse.ng-leave        { animation:slideOutRight 0.5s both ease-in; }
 
 
 
@@ -217,6 +246,7 @@ pre{
   display: inline-block;
   overflow: hidden;
   background-color:inherit;
+  box-shadow: 0 0px 60px -26px black;
 }
 
 .breadcrumb div.action-container {
@@ -245,7 +275,7 @@ pre{
   content: '';
   position: absolute;
   top: 0;
-  right: -35px; /*half of square's length*/
+  right: -20px; /*half of square's length*/
   /*same dimension as the line-height of .breadcrumb a */
   width: 40px;
   height: 40px;
@@ -282,4 +312,39 @@ pre{
   font-family: gothamBook;
   color: #bfbfbf;
   font-size:1em;
+}
+
+.action-icon{
+  padding-left:8px;
+}
+
+.breadcrumb-container{
+  text-align: center;
+}
+
+.slide-thumbnail img { transition: all .2s ease-in-out; }
+.slide-thumbnail:hover img { transform: scale(1.1); }
+
+.hover-underline-center{
+  border-width: 0px;
+  border-color: black;
+  border-style:solid;
+  padding: 3px;
+}
+
+.slide-thumbnail:hover .hover-underline-center, .slide-thumbnail:focus .hover-underline-center{
+  border-bottom-width: 1px;
+}
+
+.previous-button{
+  color: black;
+  font-family: gothamBlack;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.previous-button:hover, .previous-button:active{
+  text-decoration: none;
+  color:black;
+  cursor: pointer;
 }
