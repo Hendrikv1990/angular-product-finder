@@ -150,8 +150,8 @@ a.slide-thumbnail:hover{
   to      { transform: translateX(100%); }
 }
 
-.swap-animation-in.ng-enter        { animation:slideInRight 0.5s both ease-in; }
-.swap-animation-out.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }
+.swap-animation.ng-enter        { animation:slideInRight 0.5s both ease-in; }
+.swap-animation.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }
 
 .swap-animation-reverse.ng-enter        { animation:slideInLeft 0.5s both ease-in; }
 .swap-animation-reverse.ng-leave        { animation:slideOutRight 0.5s both ease-in; }

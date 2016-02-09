@@ -47,7 +47,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
 }])
 
 .controller('ProductFinderCtrl',
-  function($scope,$http,modelService,$location) {
+  function($scope,$http,modelService,$location, $timeout) {
 
       $scope.actionStack = [];
       $scope.findById = findById;
@@ -57,7 +57,6 @@ angular.module('myApp.productFinder', ['ngRoute'])
           useBothWheelAxes:"true",
           suppressScrollX:"true"
       };
-      $scope.animationSwap = "swap-animation-out";
 
       $scope.shouldDisplayInBreadcrumb = function(action){
           return findById($scope.slidesList,action.slideId).hasOwnProperty('breadcrumbDisplay') ? findById($scope.slidesList,action.slideId).breadcrumbDisplay : true;
@@ -71,9 +70,11 @@ angular.module('myApp.productFinder', ['ngRoute'])
 
       $scope.previous = function(){
           var curAction = $scope.actionStack.pop();
-          //TODO not ready for prime time
-          /*$scope.animationSwap = "swap-animation-reverse";*/
-          $scope.currentSlide = findById($scope.slidesList,curAction.slideId);
+          $scope.animationSwap = "swap-animation-reverse";
+          //FIXME might there be a better solution than timeout to wait for the class to be added?
+          $timeout(function(){
+              $scope.currentSlide = findById($scope.slidesList,curAction.slideId);
+          },0);
       }
 
       $scope.Math = Math;
@@ -102,7 +103,7 @@ angular.module('myApp.productFinder', ['ngRoute'])
       $scope.optionClicked = function(optionId){
           //Convert optionId to string since json is using strings
           optionId = "" + optionId;
-          $scope.animationSwap += " swap-animation-out";
+          $scope.animationSwap = " swap-animation";
           var oldSlideId = $scope.currentSlide._id;
           var actionObject = {"slideId" : oldSlideId,"option":"" + optionId, "attributes": findById($scope.optionsList,optionId).attributes};
           if(angular.equals(getCurrentPath($scope).options, {})){
@@ -113,12 +114,15 @@ angular.module('myApp.productFinder', ['ngRoute'])
               modelService.set(data);
               $location.path("/results");
           } else {
-              /*angular.elem("div.slide-content").hasClass("animation-swap-reverse")*/
-              $scope.currentSlide = getNextSlide($scope,optionId);
-              //TODO send actionObject
-              $scope.productFeed = getProducts(actionObject,$scope.productList);
-              $scope.productFeedContainerUpdate = true;
-              $scope.actionStack.push(actionObject);
+            //FIXME might there be a better solution than timeout to wait for the class to be added?
+              $timeout(function(){
+                  $scope.currentSlide = getNextSlide($scope,optionId);
+
+                  //TODO send actionObject
+                  $scope.productFeed = getProducts(actionObject,$scope.productList);
+                  $scope.productFeedContainerUpdate = true;
+                  $scope.actionStack.push(actionObject);
+              },0);
           }
 
 
