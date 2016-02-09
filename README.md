@@ -1,3 +1,17 @@
+## Shoepassion Product Finder - Front
+
+Client code for shoepassion's product finder.
+
+
+In the long run it should become a global solution for all companies by allowing each one to tweak some HTML templates and CSS.
+
+
+
+## Installing 
+You should have bower installed (installable through npm).
+
+Then run bower install in the root directory to get all the dependencies and voilà.
+
 ## Directory Layout
 
 ```
