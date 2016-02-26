@@ -1,183 +1,183 @@
-{"initialSlide": 1, 
+{"initialSlide": 1,
 "defaultPath": [1,12,1211,12111],
 "slidesList": [{
-		"_id": 1, 
-		"options": [11, 12], 
-		"text": "F\u00fcr wen suchen Sie Einen Schuh?", 
+		"_id": 1,
+		"options": [11, 12],
+		"text": "F\u00fcr wen suchen Sie Einen Schuh?",
 		"img": "",
 		"shortcut": "Geschlecht"
 	}, {
-		"_id": 12, 
-		"options": [121,122,123], 
-		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?", 
+		"_id": 12,
+		"options": [121,122,123],
+		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?",
 		"img": "",
 		"shortcut": "Outfit"
 
 }, {
-		"_id": 121, 
-		"options": [1211,1212,1213], 
-		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?", 
+		"_id": 121,
+		"options": [1211,1212,1213],
+		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?",
 		"img": "",
 		"shortcut": "Outfit",
-		"breadcrumbDisplay": false
+		"breadcrumbHide": true
 }, {
-		"_id": 122, 
-		"options": [1221,1222,1223], 
-		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?", 
+		"_id": 122,
+		"options": [1221,1222,1223],
+		"text": "Zu welchem outfit soll der schuh \n\r kombiniert werden?",
 		"img": "",
 		"shortcut": "Outfit",
-		"breadcrumbDisplay": false
+		"breadcrumbHide": true
 }, {
-		"_id": 123, 
-		"options": [1231,1232,1233,1234,1235,1236,1237,1238,1239,1230], 
-		"text": "Welche farbe überwiegt in ihrer garderobe?", 
+		"_id": 123,
+		"options": [1231,1232,1233,1234,1235,1236,1237,1238,1239,1230],
+		"text": "Welche farbe überwiegt in ihrer garderobe?",
 		"img": "",
 		"shortcut": "Outfit",
-		"breadcrumbDisplay": false
+		"breadcrumbHide": true
 }, {
-		"_id": 1211, 
-		"options": [1231,1232,1233,1234,1235,1236,1237,1238,1239,1230], 
-		"text": "Zu welcher Farbe soll der Schuh kombiniert werden?", 
+		"_id": 1211,
+		"options": [1231,1232,1233,1234,1235,1236,1237,1238,1239,1230],
+		"text": "Zu welcher Farbe soll der Schuh kombiniert werden?",
 		"img": "",
 		"shortcut": "Farbe"
 }, {
-		"_id": 12111, 
-		"options": [1211101,1211102,1211103,1211104], 
-		"text": "Welche fussform haben sie?", 
+		"_id": 12111,
+		"options": [1211101,1211102,1211103,1211104],
+		"text": "Welche fussform haben sie?",
 		"img": "",
 		"shortcut": "Fußform"
-}], 
+}],
 "optionsList": [{
-		"_id": 11, 
-		"attributes": [], 
-		"text": "HERREN", 
+		"_id": 11,
+		"attributes": [],
+		"text": "HERREN",
 		"img": "img/geschlecht-mann.png",
 		"shortcut": "Mann"
 	}, {
-		"_id": 12, 
-		"attributes": [], 
-		"text": "DAMEN", 
+		"_id": 12,
+		"attributes": [],
+		"text": "DAMEN",
 		"img": "img/geschlecht-frau.png",
 		"shortcut": "Frau"
 	}, {
-		"_id": 121, 
-		"attributes": [], 
-		"text": "Business klassisch", 
+		"_id": 121,
+		"attributes": [],
+		"text": "Business klassisch",
 		"img": "img/frau-outfit-business-klassisch.png",
 		"shortcut": "Business klass."
 	}, {
-		"_id": 122, 
-		"attributes": [], 
-		"text": "Business modern", 
+		"_id": 122,
+		"attributes": [],
+		"text": "Business modern",
 		"img": "img/frau-outfit-business-modern.png",
 		"shortcut": "Business mod."
 	}, {
-		"_id": 123, 
-		"attributes": [], 
-		"text": "freizeit", 
+		"_id": 123,
+		"attributes": [],
+		"text": "freizeit",
 		"img": "img/frau-outfit-freizeit.png",
 		"shortcut": "Freizeit"
 }, {
-		"_id": 1211, 
-		"attributes": [], 
-		"text": "Blazer & Hose", 
+		"_id": 1211,
+		"attributes": [],
+		"text": "Blazer & Hose",
 		"img": "img/frau-outfit-3-business-klassisch.png"
 	}, {
-		"_id": 1212, 
-		"attributes": [], 
-		"text": "Kleid", 
+		"_id": 1212,
+		"attributes": [],
+		"text": "Kleid",
 		"img": "img/frau-outfit-2-business-klassisch.png"
 	}, {
-		"_id": 1213, 
-		"attributes": [], 
-		"text": "Bluse & rock", 
+		"_id": 1213,
+		"attributes": [],
+		"text": "Bluse & rock",
 		"img": "img/frau-outfit-1-business-klassisch.png"
 }, {
-		"_id": 1221, 
-		"attributes": [], 
-		"text": "Jeans", 
+		"_id": 1221,
+		"attributes": [],
+		"text": "Jeans",
 		"img": "img/frau-outfit-3-business-modern.png"
 	}, {
-		"_id": 1222, 
-		"attributes": [], 
-		"text": "Kleid", 
+		"_id": 1222,
+		"attributes": [],
+		"text": "Kleid",
 		"img": "img/frau-outfit-1-business-modern.png"
 	}, {
-		"_id": 1223, 
-		"attributes": [], 
-		"text": "Rock", 
+		"_id": 1223,
+		"attributes": [],
+		"text": "Rock",
 		"img": "img/frau-outfit-2-business-klassisch.png"
 }, {
-		"_id": 1231, 
-		"attributes": [], 
-		"text": "Schwarz", 
+		"_id": 1231,
+		"attributes": [],
+		"text": "Schwarz",
 		"img": "img/frau-farbe-scharwz.png"
 	}, {
-		"_id": 1232, 
-		"attributes": [], 
-		"text": "Braun", 
+		"_id": 1232,
+		"attributes": [],
+		"text": "Braun",
 		"img": "img/frau-farbe-braun.png"
 	}, {
-		"_id": 1233, 
-		"attributes": [], 
-		"text": "Grün", 
+		"_id": 1233,
+		"attributes": [],
+		"text": "Grün",
 		"img": "img/frau-farbe-grun.png"
 }, {
-		"_id": 1234, 
-		"attributes": [], 
-		"text": "Blau", 
+		"_id": 1234,
+		"attributes": [],
+		"text": "Blau",
 		"img": "img/frau-farbe-blau.png"
 	}, {
-		"_id": 1235, 
-		"attributes": [], 
-		"text": "Pastell", 
+		"_id": 1235,
+		"attributes": [],
+		"text": "Pastell",
 		"img": "img/frau-farbe-pastell.png"
 	}, {
-		"_id": 1236, 
-		"attributes": [], 
-		"text": "Rot", 
+		"_id": 1236,
+		"attributes": [],
+		"text": "Rot",
 		"img": "img/frau-farbe-rot.png"
 }, {
-		"_id": 1237, 
-		"attributes": [], 
-		"text": "Grau", 
+		"_id": 1237,
+		"attributes": [],
+		"text": "Grau",
 		"img": "img/frau-farbe-grau.png"
 	}, {
-		"_id": 1238, 
-		"attributes": [], 
-		"text": "Violett", 
+		"_id": 1238,
+		"attributes": [],
+		"text": "Violett",
 		"img": "img/frau-farbe-violett.png"
 	}, {
-		"_id": 1239, 
-		"attributes": [], 
-		"text": "Pink", 
+		"_id": 1239,
+		"attributes": [],
+		"text": "Pink",
 		"img": "img/frau-farbe-pink.png"
 }, {
-		"_id": 1230, 
-		"attributes": [], 
-		"text": "Farbe unwichtig", 
+		"_id": 1230,
+		"attributes": [],
+		"text": "Farbe unwichtig",
 		"img": "img/frau-farbe-unwichtig.png"
 }, {
-		"_id": 1211101, 
-		"attributes": [], 
-		"text": "Schmal", 
+		"_id": 1211101,
+		"attributes": [],
+		"text": "Schmal",
 		"img": "img/fussform-schmal.png"
 }, {
-		"_id": 1211102, 
-		"attributes": [], 
-		"text": "Normal", 
+		"_id": 1211102,
+		"attributes": [],
+		"text": "Normal",
 		"img": "img/fussform-normal.png"
 }, {
-		"_id": 1211103, 
-		"attributes": [], 
-		"text": "Breit", 
+		"_id": 1211103,
+		"attributes": [],
+		"text": "Breit",
 		"img": "img/fussform-breit.png"
 }, {
-		"_id": 1211104, 
-		"attributes": [], 
-		"text": "Ich bin mir nicht sicher", 
+		"_id": 1211104,
+		"attributes": [],
+		"text": "Ich bin mir nicht sicher",
 		"img": "img/fussform-unsicher.png"
-}], 
+}],
 "slidesPath": {"_id": "1",
   "options": {
     "11": {
