@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
-                <div class="action-slideName">
+                <div class="action-slideName" ng-class="{inactive: !$first}">
                     {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
                 </div>
                 <div class="action-optionName">

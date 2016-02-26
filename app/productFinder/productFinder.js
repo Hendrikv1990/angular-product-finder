@@ -71,7 +71,6 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
                  .then(function(response){
                      console.log(response);
                      $scope.products = response.data;
-                     $scope.defaultPath.push($scope.endSlide._id);
                  });
          }
       });
@@ -118,7 +117,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           $scope.animationSwap = "swap-animation-reverse";
           if($scope.endOfPath){
               $scope.endOfPath = false;
-              $scope.defaultPath = $scope.defaultPath.slice(0,$scope.defaultPath.length - 1);
+              $scope.products = [];
           }
           //FIXME might there be a better solution than timeout to wait for the class to be added?
           $timeout(function(){
@@ -153,6 +152,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
               $scope.slidesPath = response.data.path;
               $scope.initialSlide = $scope.slidesPath["_id"];
               $scope.defaultPath = response.data.defaultPath;
+              $scope.defaultPath.push($scope.endSlide._id);
               $scope.currentSlide = findById($scope.slidesList,$scope.initialSlide);
               cookieManager.getCookies();
           });

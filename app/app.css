@@ -307,10 +307,17 @@ pre{
   text-align:center;
 }
 
+.action-slideName.inactive{
+  font-weight: normal;
+}
+
+.action-slideName.inactive,.action-optionName{
+  color: #bfbfbf;
+}
+
 .action-optionName{
   font-weight: bold;
   font-family: gothamBook;
-  color: #bfbfbf;
   font-size:1em;
 }
 
