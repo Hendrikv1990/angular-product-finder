@@ -394,6 +394,7 @@
         "shortcut": "Rock"
     }, {
         "_id": "5BgHn2hDRgSc7TWxD",
+        "img" : "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/fussform-breit.png",
         "text": "Breit",
         "attributes": [
             {"Shape" : "Breit"}
@@ -401,6 +402,7 @@
         "shortcut": "Breit"
     }, {
         "_id": "RwpnTn9STNhJZTD7r",
+        "img" : "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/fussform-schmal.png",
         "text": "Schmal",
         "attributes": [
             {"Shape" : "Schmal"}
@@ -408,6 +410,7 @@
         "shortcut": "Schmal"
     }, {
         "_id": "PndgDfcoPGWfXHTgZ",
+        "img" : "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/fussform-normal.png",
         "text": "Normal",
         "attributes": [
             {"Shape" : "Durchschnittlich"}
@@ -415,6 +418,7 @@
         "shortcut": "Normal"
     }, {
         "_id": "C3k3YLWc7zFTrEEDP",
+        "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/fussform-unsicher.png",
         "text": "Ich bim mir nicht sicher",
         "attributes": [],
         "shortcut": "Ich bim mir nicht sicher"
