@@ -27,13 +27,13 @@ function getProducts(actionObject,productList){
     });
 }
 
-function generateArgs(actionList){
+function generateURLArgs(actionList){
     var ret = "";
     actionList.forEach(function(item){
         var attrs = item.attributes;
         attrs.forEach(function(attr){
-            var key = Object.keys(attr)[0]
-            ret += key.toLowerCase() + "=" + attr[key] + "&";
+            var key = Object.keys(attr)[0];
+            ret += key.toLowerCase() + "=" + encodeURI(attr[key]).replace("&","%26") + "&";
         });
     });
     return ret.substring(0,ret.length-1);
@@ -65,7 +65,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
 
       $scope.$watch("endOfPath",function(newVal){
          if(newVal){
-             var args = generateArgs($scope.actionStack);
+             var args = generateURLArgs($scope.actionStack);
              console.log("http://shoepassion.shopboostr.de/api/v0.1/get_products?" + args);
              $http.post("http://shoepassion.shopboostr.de/api/v0.1/get_products?" + args)
                  .then(function(response){
@@ -174,8 +174,6 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
               $scope.actionStack.push(actionObject);
               $scope.endOfPath = true;
               cookieManager.putCookies();
-
-              getProducts();
 
               /*
               var data = modelService.get();
