@@ -155,7 +155,6 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
       };
 
       $scope.goBackToAction = function(action){
-          console.log(action);
         $scope.actionStack = $scope.actionStack.slice(0,$scope.actionStack.indexOf(action));
         changeSlideTo(action.slideId,true);
       };
