@@ -94,11 +94,15 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
                         }
                   });
               }
-              $cookies.remove(cookieKey);
+              removeCookies();
           };
+          var removeCookies = function(){
+              $cookies.remove(cookieKey);
+          }
           return {
               putCookies: putCookies,
-              getCookies: getCookies
+              getCookies: getCookies,
+              removeCookies: removeCookies
           }
       }();
 
@@ -112,18 +116,25 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           });
       };
 
-      $scope.previous = function(){
-          var curAction = $scope.actionStack.pop();
-          $scope.animationSwap = "swap-animation-reverse";
-          if($scope.endOfPath){
-              $scope.endOfPath = false;
-              $scope.products = [];
+      function changeSlideTo(slideId,reverse){
+          if(reverse){
+              $scope.animationSwap = "swap-animation-reverse";
+              if($scope.endOfPath){
+                  $scope.endOfPath = false;
+                  $scope.products = [];
+                  cookieManager.removeCookies();
+              }
           }
           //FIXME might there be a better solution than timeout to wait for the class to be added?
           $timeout(function(){
-              $scope.currentSlide = findById($scope.slidesList,curAction.slideId);
+              $scope.currentSlide = findById($scope.slidesList,slideId);
           },0);
       }
+
+      $scope.previous = function(){
+          var curAction = $scope.actionStack.pop();
+          changeSlideTo(curAction.slideId,true);
+      };
 
       $scope.gridController = {
           getNumberOfRow: function(collectionLength){
@@ -141,7 +152,12 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
       };
 
       $scope.onProductFeedUpdate = function(){
-        alert("update");
+      };
+
+      $scope.goBackToAction = function(action){
+          console.log(action);
+        $scope.actionStack = $scope.actionStack.slice(0,$scope.actionStack.indexOf(action));
+        changeSlideTo(action.slideId,true);
       };
 
       $http.get("data_test/test_data_productFinder_vinc.json")
