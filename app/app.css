@@ -65,9 +65,9 @@ html,body{
 
 .productFinder-container{
   position:relative;
-  height:90%;
-  width:60%;
-  margin-left:20%;
+  height: 90%;
+  width: 85%;
+  margin-left: 7%;
   margin-top:2.5%;
   /*border-style: solid;
   border-width: 1px;
@@ -350,8 +350,8 @@ pre{
   font-weight: bold;
 }
 
-.previous-button:hover, .previous-button:active{
-  text-decoration: none;
-  color:black;
-  cursor: pointer;
+.previous-button:hover, .previous-button:active {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
