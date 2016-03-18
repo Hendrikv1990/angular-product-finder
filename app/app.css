@@ -269,6 +269,7 @@ pre{
 
 .action-slideName{
   font-weight: bold;
+  text-align: left;
   margin-top: 9px;
   font-family: gothamMedium;
   font-size:1.2em;
