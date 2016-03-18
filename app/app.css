@@ -56,7 +56,6 @@ html,body{
   margin-bottom:5px;
   overflow:hidden;
 }
-
 .productFeed-container{
   position:relative;
   height:40%;
@@ -242,26 +241,23 @@ pre{
 
 
 .breadcrumb {
-  /*centering*/
-  display: inline-block;
+  /*centering -> the centering got to be in the container Mr.Jean*/
+  display: inline-flex;
   overflow: hidden;
   background-color:inherit;
   box-shadow: 0 0px 60px -26px black;
 }
-
+.breadcrumb-container{
+    text-align: center;
+}
 .breadcrumb div.action-container {
   text-decoration: none;
   outline: none;
   display: block;
   float: left;
-  /*need more margin on the left of links to accomodate the numbers*/
-  padding: 0 10px 0 60px;
   position: relative;
 }
-/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
-.breadcrumb div.action-container:first-child {
-  padding-left: 46px;
-}
+
 .breadcrumb div.action-container:first-child:before {
   left: 14px;
 }
@@ -270,63 +266,31 @@ pre{
   padding-right: 20px;
 }
 
-/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
-.breadcrumb div.action-container:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -20px; /*half of square's length*/
-  /*same dimension as the line-height of .breadcrumb a */
-  width: 40px;
-  height: 40px;
-  /*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
-  length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
-  if diagonal required = 1; length = 1/1.414 = 0.707*/
-  transform: scale(0.707) rotate(45deg);
-  /*we need to prevent the arrows from getting buried under the next link*/
-  z-index: 1;
-
-  /*stylish arrow design using box shadow*/
-  box-shadow:
-          2px -2px 0 2px rgba(0, 0, 0, 0.4),
-          3px -3px 0 2px rgba(255, 255, 255, 0.1);
-  /*
-      5px - for rounded arrows and
-      50px - to prevent hover glitches on the border created using shadows*/
-  border-radius: 0 2px 0 50px;
-}
-/*we dont need an arrow after the last link*/
-.breadcrumb div.action-container:last-child:after {
-  content: none;
-}
-
 .action-slideName{
   font-weight: bold;
+  margin-top: 9px;
   font-family: gothamMedium;
   font-size:1.2em;
-  text-align:center;
 }
 
 .action-slideName.inactive{
   font-weight: normal;
 }
 
-.action-slideName.inactive,.action-optionName{
+.action-slideName.inactive,.action-optionName,.light-grey{
   color: #bfbfbf;
 }
 
 .action-optionName{
   font-weight: bold;
+  text-align: left;
+    margin-top: 10px;
   font-family: gothamBook;
-  font-size:1em;
+  font-size: 1.2em;
 }
 
 .action-icon{
   padding-left:8px;
-}
-
-.breadcrumb-container{
-  text-align: center;
 }
 
 .slide-thumbnail img { transition: all .2s ease-in-out; }
@@ -355,3 +319,26 @@ pre{
     color: black;
     cursor: pointer;
 }
+.previous-button:hover, .previous-button:active{
+  text-decoration: none;
+  color:black;
+  cursor: pointer;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.sb-boxes{
+    text-align: center;
+}
+.sb-boxes1{
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.resize{
+    width: 50%;
+}
+
+

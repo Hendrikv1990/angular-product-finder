@@ -2,21 +2,40 @@
 
     <div class="breadcrumb-container">
         <div class="breadcrumb row">
-            <div class="action-container" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb">
-                <div class="action-slideName">
-                    {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
-                    <span class="glyphicon glyphicon-ok text-success action-icon" aria-hidden="true"></span>
+            <div class="action-container clickable" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb" ng-click="goBackToAction(action)">
+                <div class="col-md-12" style="padding-right: 80px;">
+
+                    <div class="action-slideName">
+                        {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
+                        <span class="glyphicon glyphicon-ok text-success action-icon" aria-hidden="true"></span>
+                    </div>
+                    <div class="action-optionName">
+                        {{ ! findById(optionsList,action.option).hasOwnProperty("shortcut")  ? findById(optionsList,action.option).text : findById(optionsList,action.option).shortcut}}
+                    </div>
                 </div>
-                <div class="action-optionName">
-                    {{ ! findById(optionsList,action.option).hasOwnProperty("shortcut")  ? findById(optionsList,action.option).text : findById(optionsList,action.option).shortcut}}
+                <div class="svg-container" style="position: absolute; left: 80%;">
+                    <svg viewBox="0 0 100 180" class="breadcrumb-arrow" style="width: 23px;">
+                        <g>
+                            <polyline points="45,0 85,85 45,180" class="light-grey" stroke-width="6px" fill="none" stroke="#bfbfbf"></polyline>
+                        </g>
+                    </svg>
                 </div>
             </div>
             <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
-                <div class="action-slideName" ng-class="{inactive: !$first}">
-                    {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
+                <div class="col-md-12" style="padding-right: 80px;">
+                    <div class="action-slideName" ng-class="{inactive: !$first}">
+                        {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
+                    </div>
+                    <div class="action-optionName">
+                        &nbsp;
+                    </div>
                 </div>
-                <div class="action-optionName">
-                    &nbsp;
+                <div class="svg-container" style="position: absolute; left: 80%;" ng-hide="$last">
+                    <svg viewBox="0 0 100 180" class="breadcrumb-arrow" style="width: 23px;">
+                        <g>
+                            <polyline points="45,0 85,85 45,180" class="light-grey" stroke-width="6px" fill="none" stroke="#bfbfbf"></polyline>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -26,6 +45,9 @@
 
 
     <div class="slide-container">
+        <div class="sb-boxes sb-boxes1">
+            <img src="http://shoepassion.de/skin/frontend/shoepassion/default/images/experts/bottom_border.jpg"/>
+        </div>
 
         <div class="container-fluid slide-content {{animationSwap}}" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide" ng-hide="endOfPath">
 
@@ -40,7 +62,7 @@
                             {{option.text | uppercase}}
                         </div>
                         <div class="img-container">
-                            <img preload-image ng-src="{{option.img}}" class="center-block img-responsive"/>
+                            <img preload-image ng-src="{{option.img}}" class="resize center-block img-responsive"/>
                         </div>
                         <div class="caption">
                             <span class="hover-underline-center">
@@ -108,7 +130,9 @@
 
     </perfect-scrollbar>
 
-
+    <div class="sb-boxes">
+        <img src="http://shoepassion.de/skin/frontend/shoepassion/default/images/experts/bottom_border.jpg"/>
+    </div>
 
 </div>
 
