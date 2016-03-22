@@ -71,6 +71,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
                  .then(function(response){
                      console.log(response);
                      $scope.products = response.data;
+                     $scope.productManager.showMoreProducts();
                  });
          }
       });
@@ -123,6 +124,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
                   $scope.endOfPath = false;
                   $scope.products = [];
                   cookieManager.removeCookies();
+                  $scope.productManager.reset();
               }
           }
           //FIXME might there be a better solution than timeout to wait for the class to be added?
@@ -208,4 +210,29 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
               },0);
           }
       };
+
+      $scope.productManager = function(){
+          var index = 0;
+          var reset = function(){
+              index = 0;
+          };
+          var hasMore = function(){
+              if($scope.products){
+                  return index <= $scope.products.length;
+              } else {
+                  return false;
+              }
+          };
+
+          var showMore = function(){
+              $scope.shownProducts = $scope.products.slice(index,index + $scope.productDisplayedLimit);
+              index += $scope.productDisplayedLimit;
+          };
+
+          return {
+              hasMoreProducts: hasMore,
+              showMoreProducts: showMore,
+              reset: reset
+          };
+      }();
 });

@@ -83,7 +83,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-{{gridController.getItemSize(productDisplayedLimit)}} col-md-offset-{{gridController.getItemOffSize($index,productDisplayedLimit)}}" ng-repeat="product in products | limitTo : productDisplayedLimit">
+                <div class="col-md-{{gridController.getItemSize(productDisplayedLimit)}} col-md-offset-{{gridController.getItemOffSize($index,productDisplayedLimit)}}" ng-repeat="product in shownProducts">
                     <a class="thumbnail slide-thumbnail" href="{{product.url}}">
                         <div class="caption caption-over" ng-if="captionOver">
                             {{product.title | uppercase}}
@@ -105,11 +105,19 @@
 
     </div>
 
-    <a class="previous-button" ng-click="previous()" ng-if="actionStack.length != 0">
+
         <div>
-            <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ZURÜCK
+            <div class="col-md-6">
+                <a class="previous-button" ng-click="previous()" ng-if="actionStack.length != 0">
+                    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ZURÜCK
+                </a>
+            </div>
+            <div class="col-md-2 col-md-offset-4">
+                <a class="previous-button" ng-show="endOfPath && productManager.hasMoreProducts()" ng-click="productManager.showMoreProducts()">
+                    WEITERE MODEL <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                </a>
+            </div>
         </div>
-    </a>
 
     <perfect-scrollbar class="container-fluid productFeed-container scrollbar-always-visible" opts="productFeedContainerScrollOpts" repeat-end="onProductFeedUpdate()" update="productFeedContainerUpdate" ng-if="productFeed.length != 0 && showProductFeed">
 
