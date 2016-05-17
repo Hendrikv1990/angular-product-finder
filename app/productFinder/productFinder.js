@@ -190,7 +190,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           $scope.animationSwap = " swap-animation";
           var oldSlideId = $scope.currentSlide._id;
           var actionObject = {"slideId" : oldSlideId,"option":"" + optionId, "attributes": findById($scope.optionsList,optionId).attributes};
-          if(angular.equals($scope.currentSlide.options, {})){
+          if(angular.equals(getCurrentPath($scope).options, {})){
               $scope.actionStack.push(actionObject);
               $scope.endOfPath = true;
               cookieManager.putCookies();
