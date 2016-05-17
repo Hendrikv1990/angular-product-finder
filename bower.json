@@ -17,5 +17,8 @@
     "angular-preload-image": "*",
     "jasmine-jquery": "^2.1.1",
     "angular-cookies": "^1.5.0"
+  },
+  "resolutions": {
+    "angular": "1.5.5"
   }
 }
