@@ -246,7 +246,10 @@ pre{
   display: inline-flex;
   overflow: hidden;
   background-color:inherit;
-  box-shadow: 0 0px 60px -26px black;
+}
+.sb-breadcrumb{
+  margin-bottom: 0px;
+  padding: 0px;
 }
 .breadcrumb-container{
     text-align: center;
@@ -334,10 +337,8 @@ pre{
 .sb-boxes{
     text-align: center;
 }
-.sb-boxes1{
-    -ms-transform: rotate(180deg); /* IE 9 */
-    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-    transform: rotate(180deg);
+.sb-boxes-up{
+  margin-top: -10px;
 }
 .resize{
     width: 60%;

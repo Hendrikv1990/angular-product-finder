@@ -55,6 +55,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
       $scope.findById = findById;
       $scope.productFeed = [];
       $scope.showProductFeed = false;
+      $scope.productsDataLoaded = false;
       $scope.productFeedContainerScrollOpts = {
           useBothWheelAxes:"true",
           suppressScrollX:"true"
@@ -66,12 +67,14 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
       $scope.$watch("endOfPath",function(newVal){
          if(newVal){
              var args = generateURLArgs($scope.actionStack);
+             $scope.productsDataLoaded = false;
              console.log("http://shoepassion.shopboostr.de/api/v0.1/get_products?" + args);
              $http.post("http://shoepassion.shopboostr.de/api/v0.1/get_products?" + args)
                  .then(function(response){
                      console.log(response);
                      $scope.products = response.data;
                      $scope.productManager.showMoreProducts();
+                     $scope.productsDataLoaded = true;
                  });
          }
       });
@@ -187,7 +190,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           $scope.animationSwap = " swap-animation";
           var oldSlideId = $scope.currentSlide._id;
           var actionObject = {"slideId" : oldSlideId,"option":"" + optionId, "attributes": findById($scope.optionsList,optionId).attributes};
-          if(angular.equals(getCurrentPath($scope).options, {})){
+          if(angular.equals($scope.currentSlide.options, {})){
               $scope.actionStack.push(actionObject);
               $scope.endOfPath = true;
               cookieManager.putCookies();
@@ -216,6 +219,7 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           var reset = function(){
               index = 0;
           };
+          var productsImagesReady = false;
           var hasMore = function(){
               if($scope.products){
                   return index <= $scope.products.length;
@@ -225,14 +229,23 @@ angular.module('myApp.productFinder', ['ngRoute','ngCookies'])
           };
 
           var showMore = function(){
+              var imagesLoaded = 0;
+              productsImagesReady = false;
               $scope.shownProducts = $scope.products.slice(index,index + $scope.productDisplayedLimit);
               index += $scope.productDisplayedLimit;
+              $scope.shownProducts.forEach(function(product){
+                  var img = new Image();
+                  img.onload = function() { imagesLoaded++; if(imagesLoaded == $scope.productDisplayedLimit-1){ productsImagesReady = true;} };
+                  img.src = product.image_url;
+              });
+
           };
 
           return {
               hasMoreProducts: hasMore,
               showMoreProducts: showMore,
-              reset: reset
+              reset: reset,
+              productsImagesReady: function(){ return productsImagesReady;}
           };
       }();
 });

@@ -1,7 +1,7 @@
 <div class="productFinder-container">
 
     <div class="breadcrumb-container">
-        <div class="breadcrumb row">
+        <div class="breadcrumb row sb-breadcrumb">
             <div class="action-container clickable" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb" ng-click="goBackToAction(action)">
                 <div class="col-md-12" style="padding-right: 80px;">
 
@@ -39,15 +39,15 @@
                 </div>
             </div>
         </div>
-
+        <div class="sb-boxes sb-boxes-up">
+            <img src="http://shoepassion.de/skin/frontend/shoepassion/default/images/experts/bottom_border.jpg"/>
+        </div>
     </div>
 
 
 
+
     <div class="slide-container">
-        <div class="sb-boxes sb-boxes1">
-            <img src="http://shoepassion.de/skin/frontend/shoepassion/default/images/experts/bottom_border.jpg"/>
-        </div>
         <div class="container-fluid slide-content {{animationSwap}}" preload-bg-image="{{currentSlide.img}}" ng-animate-swap="currentSlide" ng-hide="endOfPath">
 
             <div class="row">
@@ -76,20 +76,21 @@
 
 
         </div>
-
-        <div class="container-fluid product-content" ng-show="endOfPath">
+        <div class="container-fluid product-content" ng-show="endOfPath && productsDataLoaded">
             <div class="row">
                 <h2 class="text-center slide-title"> <pre> {{endSlide.text | uppercase}} </pre></h2>
             </div>
 
+
             <div class="row">
                 <div class="col-md-{{gridController.getItemSize(productDisplayedLimit)}} col-md-offset-{{gridController.getItemOffSize($index,productDisplayedLimit)}}" ng-repeat="product in shownProducts">
-                    <a class="thumbnail slide-thumbnail" href="{{product.url}}">
+
+                    <a class="thumbnail slide-thumbnail" href="{{product.url}}" ng-show="productManager.productsImagesReady">
                         <div class="caption caption-over" ng-if="captionOver">
                             {{product.title | uppercase}}
                         </div>
                         <div class="img-container">
-                            <img preload-image ng-src="{{product.image_url}}" class="center-block img-responsive"/>
+                            <img ng-src="{{product.image_url}}" class="center-block img-responsive"/>
                         </div>
                         <div class="caption">
                             <span class="hover-underline-center">
@@ -97,6 +98,7 @@
                             </span>
                         </div>
                     </a>
+
                 </div>
             </div>
 
@@ -112,9 +114,9 @@
                     <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> ZURÜCK
                 </a>
             </div>
-            <div class="col-md-2 col-md-offset-4">
-                <a class="previous-button" ng-show="endOfPath && productManager.hasMoreProducts()" ng-click="productManager.showMoreProducts()">
-                    WEITERE MODEL <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+            <div class="col-md-6 text-right">
+                <a class="previous-button" ng-show="endOfPath && productsDataLoaded && productManager.hasMoreProducts()" ng-click="productManager.showMoreProducts()">
+                    WEITERE MODELLE <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                 </a>
             </div>
         </div>
