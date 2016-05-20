@@ -84,7 +84,7 @@
             "options": [
                 "veAMzYnPTq5g7LCx7",
                 "8APCrehyeGyY4bhsh",
-                "cakEZNYbsSN2GqdmC",
+                "Fx7sk43jN2Kgzvazj",
                 "kMrvEsybd5E6yWuqJ",
                 "Ybdj3qSznhoGTQJFC",
                 "q9Cqw8Zdmds7cfg3J"
@@ -194,14 +194,6 @@
             {"Color" : "Braun"}
         ],
         "shortcut": "Braun"
-    }, {
-        "_id": "cakEZNYbsSN2GqdmC",
-        "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/mann-farbe-burgund.png",
-        "text": "Burgund",
-        "attributes": [
-            {"Color" : "Burgund"}
-        ],
-        "shortcut": "Burgund"
     }, {
         "_id": "kMrvEsybd5E6yWuqJ",
         "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/mann-farbe-blau.png",
@@ -465,7 +457,7 @@
                                 "_id": "GmqhNCFsaARwcSg3T",
                                 "options": {}
                             },
-                            "cakEZNYbsSN2GqdmC": {
+                            "Fx7sk43jN2Kgzvazj": {
                                 "_id": "GmqhNCFsaARwcSg3T",
                                 "options": {}
                             },
