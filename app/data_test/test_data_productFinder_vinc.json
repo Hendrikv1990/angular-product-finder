@@ -285,11 +285,11 @@
     }, {
         "_id": "pr1SHbm6CYfAz7k7d",
         "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/frau-farbe-pink.png",
-        "text": "Pink",
+        "text": "Rosa",
         "attributes": [
-            {"Color" : "Pink"}
+            {"Color" : "Rosa"}
         ],
-        "shortcut": "Pink"
+        "shortcut": "Rosa"
     }, {
         "_id": "jmlSHbm6CYfAz7kd2",
         "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/frau-farbe-rot.png",
@@ -307,11 +307,11 @@
     }, {
         "_id": "DGdo3bm6CYfAz03Gd",
         "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/frau-farbe-violett.png",
-        "text": "Violett",
+        "text": "Lila",
         "attributes": [
             {"Color" :"Lila"}
         ],
-        "shortcut": "Violett"
+        "shortcut": "Lila"
     }, {
         "_id": "n0g0dbm6CYfAfoe4p",
         "img": "https://s3.eu-central-1.amazonaws.com/shoepassion-bilder/frau-outfit-1-business-klassisch.png",
