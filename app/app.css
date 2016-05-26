@@ -253,6 +253,7 @@ pre{
 }
 .breadcrumb-container{
     text-align: center;
+    text-align: -webkit-center;
 }
 .breadcrumb div.action-container {
   text-decoration: none;
