@@ -65,8 +65,6 @@ html,body{
 .productFinder-container{
   position:relative;
   height: 90%;
-  width: 85%;
-  margin-left: 7%;
   margin-top:2.5%;
   /*border-style: solid;
   border-width: 1px;
@@ -247,15 +245,21 @@ pre{
   overflow: hidden;
   background-color:inherit;
 }
+
 .sb-breadcrumb{
   margin-bottom: 0px;
   padding: 0px;
-  width: 75%;
 }
+
 .breadcrumb-container > * {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  float: none;
+}
+
+.sb-breadcrumb{
+margin-left:6%;
 }
 
 .breadcrumb div.action-container {
