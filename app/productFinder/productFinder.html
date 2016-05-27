@@ -1,10 +1,10 @@
 <div class="productFinder-container">
 
     <div class="container">
-        <div class="col-md-12">
+        <div class="col-md-12 breadcrumb-container">
         <div class="breadcrumb sb-breadcrumb">
             <div class="action-container clickable" ng-repeat="action in actionStack | filter: shouldDisplayInBreadcrumb" ng-click="goBackToAction(action)">
-                <div class="col-md-12" style="padding-right: 80px;">
+                <div class="col-md-12 hasBreadcrumbArrow">
 
                     <div class="action-slideName">
                         {{ ! findById(slidesList,action.slideId).hasOwnProperty("shortcut") ? findById(slidesList,action.slideId).text : findById(slidesList,action.slideId).shortcut}}
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="action-container" ng-repeat="slideId in defaultPath.slice(getDisplayedActions().length)">
-                <div class="col-md-12" style="padding-right: 80px;">
+                <div class="col-md-12" ng-class="{hasBreadcrumbArrow: !$last}">
                     <div class="action-slideName" ng-class="{inactive: !$first}">
                         {{ ! findById(slidesList,slideId).hasOwnProperty('shortcut') ? findById(slidesList,slideId).text : findById(slidesList,slideId).shortcut}}
                     </div>

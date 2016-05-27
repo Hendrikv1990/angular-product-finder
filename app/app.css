@@ -238,9 +238,12 @@ pre{
   padding: 0px;
 }
 
+.breadcrumb-container{
+  display: flex;
+  justify-content: center;
+}
 
 .breadcrumb {
-  /*centering -> the centering got to be in the container Mr.Jean*/
   display: inline-flex;
   overflow: hidden;
   background-color:inherit;
@@ -251,15 +254,8 @@ pre{
   padding: 0px;
 }
 
-.breadcrumb-container > * {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  float: none;
-}
-
-.sb-breadcrumb{
-margin-left:6%;
+.hasBreadcrumbArrow{
+  padding-right: 80px;
 }
 
 .breadcrumb div.action-container {
