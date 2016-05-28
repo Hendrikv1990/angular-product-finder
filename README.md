@@ -1,6 +1,6 @@
-## Shoepassion Product Finder - Front
+## Product Finder - Front
 
-Client code for shoepassion's product finder.
+Client code for the product finder.
 
 
 In the long run it should become a global solution for all companies by allowing each one to tweak some HTML templates and CSS.
